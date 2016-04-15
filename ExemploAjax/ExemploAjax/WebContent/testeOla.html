@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<script>
+
+	function processaAjax(){
+			
+		var xmlHttp = new XMLHttpRequest();
+		
+		xmlHttp.onreadystatechange = function(){
+			
+			if(xmlHttp.readyState == 4 && xmlHttp.status==200){
+				
+				var nome = document.getElementById("nome").value
+				document.getElementById("resposta").innerHTML = nome;
+			}
+		};
+		
+		xmlHttp.open("GET", "testeOla.html", true);
+		xmlHttp.send();
+		
+	}
+
+</script>
+<body>
+
+<form name="form1" method="get">
+	<br>
+	Digite seu nome: <input type="text" name="nome">
+	<br>
+	
+	<input type="button"  value="Clique aqui!" onclick="processaAjax()">
+	<br>
+	<br>
+	<div id="resposta">....</div>
+
+</form>
+
+
+</body>
+</html>
